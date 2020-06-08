@@ -42,9 +42,10 @@ for i in range(1, len(rows)):
     if i not in d_rows:
         new_rows.append(rows[i])
 
+new_rows.sort(reverse = True, key = lambda s: float(s[12]))
+
 '''
-print('writing csv file.')
-with open('output.csv', 'w', newline = '', encoding = 'utf-8') as file:
+with open('n_output.csv', 'w', newline = '', encoding = 'utf-8') as file:
     writer = csv.writer(file, delimiter = ',')
 
     for row in new_rows:
@@ -70,6 +71,7 @@ for i in range(len(new_rows)):
 for i in range(len(j_a)):
     j_ab.append(j_a[i] - j_b[i])
 
+'''
 new_name = ""
 
 for i in range(len(j_name)):
@@ -81,9 +83,22 @@ for i in range(len(j_name)):
                 new_name += j_name[i][j]
         j_name[i] = new_name
         new_name = ""
+'''
+
+nrows = []
+
+with open('schoolname.csv', newline='') as csvfile:
+    rows = csv.reader(csvfile)
+    for row in rows:
+        nrows.append(row)
+
+for i in range(len(j_name)):
+    for j in range(len(nrows)):
+        if j_name[i] == nrows[j][0]:
+            j_name[i] = nrows[j][1]
 
 print('writing chart file.')
-file = open('圖表.html', 'w')
+file = open('index.html', 'w')
 file.write("<!DOCTYPE html>\n")
 file.write("<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>\n")
 file.write("<script src='https://code.highcharts.com/highcharts.js'></script>\n")
