@@ -45,6 +45,7 @@ for i in range(1, len(rows)):
 new_rows.sort(reverse = True, key = lambda s: float(s[12]))
 
 '''
+print('writing csv file.')
 with open('n_output.csv', 'w', newline = '', encoding = 'utf-8') as file:
     writer = csv.writer(file, delimiter = ',')
 
@@ -124,7 +125,8 @@ file.write("}, {\n")
 file.write("title: {text: '人數', style: {color: Highcharts.getOptions().colors[0]}}, labels: {format: '{value}人', style: {color: Highcharts.getOptions().colors[0]}}, opposite: true\n")
 file.write("}],\n")
 file.write("tooltip: {shared: true},\n")
-file.write("legend: {layout: 'vertical', align: 'left', x: 120, verticalAlign: 'top', y: 100, floating: true, backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || 'rgba(255,255,255,0.25)'},\n")
+#file.write("legend: {layout: 'vertical', align: 'left', x: 120, verticalAlign: 'top', y: 100, floating: true, backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || 'rgba(255,255,255,0.25)'},\n")
+file.write("legend: {layout: 'vertical', align: 'right', x: -120, verticalAlign: 'top', y: 100, floating: true, backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || 'rgba(255,255,255,0.25)'},\n")
 file.write("series: [{\n")
 file.write("name: '招生名額', type: 'column', yAxis: 1, data: [")
 for i in range(len(j_ab) - 1):
