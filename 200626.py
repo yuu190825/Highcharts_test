@@ -1,7 +1,8 @@
+f2 = open('out.txt', 'w')
 for a in range(2):
-    f = open(f'./in{str(a+1)}.txt')
+    f1 = open(f'./in{str(a+1)}.txt')
     i = []
-    for line in f:
+    for line in f1:
         i.append(line)
     for a in range(len(i)):
         i[a] = i[a].rstrip('\n')
@@ -19,4 +20,8 @@ for a in range(2):
         score.append(x)
         x = 0
         y = 0
-    print(score) # 10, 9, 6, 55, 20 and 198, 108, 24, 31, 61, 1, 0
+    for a in range(len(score)):
+        f2.write(str(score[a]) + '\n')
+    f2.write('\n')
+f1.close
+f2.close
